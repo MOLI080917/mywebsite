@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOLI · 页面线框图（阶段3）</title>
+<style>
+  /* 线框稿：只用灰阶占位，不代表最终配色；最终配色为 003 黑白红 */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,"Microsoft YaHei",sans-serif;background:#e9e9e6;color:#222;line-height:1.5;padding:24px}
+  h1{font-size:18px;margin-bottom:4px}
+  .note{color:#666;font-size:13px;margin-bottom:20px}
+  .frame{max-width:1100px;margin:0 auto;border:2px dashed #999;background:#fff}
+  .block{border:2px solid #555;margin:10px;padding:14px;position:relative;background:#fafafa}
+  .block .tag{position:absolute;top:6px;right:8px;font-size:11px;color:#fff;background:#555;padding:1px 7px;border-radius:2px}
+  .nav{display:flex;justify-content:space-between;align-items:center}
+  .nav .links span{margin-left:14px;color:#444;font-size:13px}
+  .hero{min-height:220px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+  .mega{font-size:46px;font-weight:900;letter-spacing:2px}
+  .row{display:flex;gap:10px}
+  .btn{border:2px solid #333;padding:6px 14px;font-size:13px;display:inline-block;width:fit-content}
+  .btn.solid{background:#333;color:#fff}
+  .two{display:grid;grid-template-columns:1fr 2fr;gap:12px}
+  .statement{background:#333;color:#eee;text-align:center;font-size:34px;font-weight:900;letter-spacing:3px}
+  .works{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .cards{display:flex;gap:8px;align-items:center}
+  .card{width:64px;height:84px;border:2px solid #333;background:#eee;display:flex;align-items:center;justify-content:center;font-weight:900}
+  .card:nth-child(2){transform:rotate(8deg);background:#ddd}
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#444;color:#eee;border-color:#000}
+  .skills .block{background:#555;color:#eee;border-color:#bbb}
+  .timeline div{border-left:3px solid #777;padding:6px 0 6px 14px;margin-left:6px;font-size:13px}
+  .contact{background:#111;color:#eee;text-align:center;border-color:#000}
+  .foot{display:flex;justify-content:space-between;font-size:12px;color:#555}
+  @media(max-width:720px){.two,.works,.skills{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <h1>MOLI 个人作品集 · 页面线框（Wireframe）</h1>
+  <p class="note">阶段 3 产出 · 仅表达结构与节奏，灰阶占位；最终实现采用 color/003 黑白红。标签注明主导动效编号。</p>
+  <div class="frame">
+    <div class="block nav"><strong>MOLI</strong><div class="links"><span>About</span><span>Works</span><span>Skills</span><span>Path</span><span>Contact</span></div><span class="tag">固定导航</span></div>
+    <div class="block hero">
+      <span class="tag">Hero 100vh · 动效①解码</span>
+      <div class="mega">MOLI</div>
+      <div>Liang Yukun — 中职计算机专业学生 / 前端方向</div>
+      <div>“用代码把想法做成能点开的东西。”</div>
+      <div class="row"><span class="btn solid">看作品 ↓</span><span class="btn">联系我</span></div>
+    </div>
+    <div class="block two">
+      <div><strong>01 / ABOUT</strong><br><small>动效⑤揭示 · 近白 · 低节奏</small></div>
+      <div><strong>把兴趣，做成能跑起来的作品。</strong><br>正文段落 + 标签 chips + 数字带 04 / 02+ / 06+ / ∞</div>
+      <span class="tag">About</span>
+    </div>
+    <div class="block statement">I BUILD THINGS.<span class="tag">宣言A 深炭 · 动效②扫光</span></div>
+    <div class="block works">
+      <div class="cards"><div class="card">01</div><div class="card">02</div><div class="card">03</div><div class="card">04</div></div>
+      <div><strong>02 / WORKS 做过的东西</strong><br>当前项目：标题 / 技术标签 / 简介 / 角色<br><br>◀ &nbsp;●●○○ &nbsp;▶<br><small>动效③斜向卡片 · 近白</small></div>
+      <span class="tag">Works 100vh</span>
+    </div>
+    <div class="skills block">
+      <div>中心 MOLI + 红连线 + 环绕技能节点（微浮动）</div>
+      <div><strong>03 / SKILLS</strong> 会什么到什么程度：语言 / 前端 / 工具 分组 + 刻度条</div>
+      <span class="tag">Skills 深色 · 动效④</span>
+    </div>
+    <div class="block statement">STILL LEARNING.<span class="tag">宣言B · 动效②</span></div>
+    <div class="block timeline">
+      <strong>04 / PATH 一路怎么走来</strong>
+      <div>2023.09 入学</div><div>2024.03 第一个网页</div><div>2024.10 校赛</div><div>2025.01 证书/学JS</div><div>2025.06 PWA</div><div>2026 本站/找机会</div>
+      <span class="tag">Path · 动效⑤</span>
+    </div>
+    <div class="block contact">
+      <strong style="font-size:28px">一起做点东西？</strong><br>
+      <span class="btn solid">moli.example@qq.com</span> &nbsp; <span class="btn">GitHub</span> <span class="btn">B站/微信</span>
+      <span class="tag">Contact 近黑</span>
+    </div>
+    <div class="block foot"><span>© 2026 Liang Yukun · MOLI</span><span>Built with HTML/CSS/GSAP</span><span>回到顶部 ↑</span><span class="tag">页脚</span></div>
+  </div>
+</body>
+</html>

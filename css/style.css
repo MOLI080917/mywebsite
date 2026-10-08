@@ -207,6 +207,32 @@ html.js:not(.gsap-on) [data-reveal].is-revealed {
   color: var(--color-text-on-dark-sub);
 }
 
+/* 语言切换钮：mono 描边 pill，配色跟随导航三态（Hero 浅 / 滚动态深 / 菜单态浅） */
+.nav { gap: 14px; }
+.nav__lang {
+  font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.14em;
+  line-height: 1; padding: 7px 12px;
+  color: var(--color-bg); background: transparent;
+  border: 1px solid currentColor; border-radius: var(--radius-sm);
+  transition: background var(--dur-hover), color var(--dur-hover), border-color var(--dur-hover);
+}
+.nav.is-scrolled .nav__lang { color: var(--color-text); }
+.nav.is-open .nav__lang { color: var(--color-bg); }
+.nav__lang:hover {
+  background: var(--color-accent); border-color: var(--color-accent); color: var(--color-on-accent);
+}
+/* 移动全屏菜单内的整宽语言钮（菜单改纵向排列） */
+.mobile-menu { flex-direction: column; justify-content: center; }
+.mobile-menu__lang {
+  width: 100%; margin-top: 22px;
+  font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.14em;
+  padding: 14px 16px; text-align: center;
+  color: var(--color-bg); background: transparent;
+  border: 1px solid rgba(255, 255, 250, 0.45); border-radius: var(--radius-sm);
+  transition: background var(--dur-hover), border-color var(--dur-hover);
+}
+.mobile-menu__lang:hover { background: var(--color-accent); border-color: var(--color-accent); }
+
 /* ---------- GSAP 渐进增强：平滑滚动容器与文字遮罩 ---------- */
 #smooth-wrapper { position: relative; width: 100%; overflow: hidden; }
 #smooth-content { will-change: transform; }

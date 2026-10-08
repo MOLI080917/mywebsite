@@ -60,10 +60,21 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
 
+    const menuLabel = (open) => (window.MOLI_I18N
+      ? window.MOLI_I18N.t(open ? 'nav.toggleClose' : 'nav.toggleOpen')
+      : (open ? '关闭菜单' : '打开菜单'));
     function setMenu(open) {
       nav.classList.toggle('is-open', open);
       if (menu) { menu.classList.toggle('is-open', open); menu.setAttribute('aria-hidden', String(!open)); }
-      if (toggle) toggle.setAttribute('aria-expanded', String(open));
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', menuLabel(open));
+      }
+    }
+    if (toggle && window.MOLI_I18N) {
+      window.MOLI_I18N.onChange(() => {
+        toggle.setAttribute('aria-label', menuLabel(toggle.getAttribute('aria-expanded') === 'true'));
+      });
     }
     if (toggle) {
       toggle.addEventListener('click', () => {
@@ -318,12 +329,20 @@
     const dots = [];
     if (dotsWrap) cards.forEach((c, i) => {
       const b = document.createElement('button');
-      b.type = 'button'; b.setAttribute('aria-label', '查看第 ' + (i + 1) + ' 张荣誉');
+      b.type = 'button';
+      b.setAttribute('aria-label', window.MOLI_I18N
+        ? window.MOLI_I18N.t('honors.dot').replace('{n}', String(i + 1))
+        : '查看第 ' + (i + 1) + ' 张荣誉');
       b.addEventListener('click', (e) => { e.stopPropagation(); goTo(i); });
       dotsWrap.appendChild(b); dots.push(b);
     });
+    if (dotsWrap && window.MOLI_I18N) {
+      window.MOLI_I18N.onChange(() => $$('button', dotsWrap).forEach((d, i) => {
+        d.setAttribute('aria-label', window.MOLI_I18N.t('honors.dot').replace('{n}', String(i + 1)));
+      }));
+    }
 
-    let order = cards.map((_, i) => i); // 队尾为最前一张
+    let order = cards.map((_, i) => (i + 1) % n); // 队尾为最前一张；初始最前为 01，向右切换数字递增
     let busy = false, falling = null;   // falling：后退时正在下坠的旧前卡，落定前不参与重排
     const frontIndex = () => order[n - 1];
 
@@ -423,7 +442,11 @@
     let active = 0;
     deck.setAttribute('tabindex', '0');
     deck.setAttribute('role', 'listbox');
-    deck.setAttribute('aria-label', '项目卡片，可用左右方向键切换');
+    const deckLabel = () => deck.setAttribute('aria-label', window.MOLI_I18N
+      ? window.MOLI_I18N.t('works.deckAria')
+      : '项目卡片，可用左右方向键切换');
+    deckLabel();
+    if (window.MOLI_I18N) window.MOLI_I18N.onChange(deckLabel);
 
     if (HAS_GSAP) { // 先建立 GSAP 变换基线（替代 CSS 的 translate(-50%,-50%)）
       window.gsap.set(cards, { xPercent: -50, yPercent: -50, x: 0, y: 0, rotation: 0, scale: 1 });
@@ -1009,10 +1032,11 @@
   /* ---------- 一键复制邮箱（含 textarea 兜底） ---------- */
   function initCopyEmail() {
     $$('.contact-copy').forEach((btn) => {
-      const original = btn.textContent;
+      const restoreLabel = () => { btn.textContent = window.MOLI_I18N ? window.MOLI_I18N.t('contact.copy') : '复制邮箱'; };
       const flash = () => {
-        btn.classList.add('is-copied'); btn.textContent = '已复制 ✓';
-        setTimeout(() => { btn.classList.remove('is-copied'); btn.textContent = original; }, 1600);
+        btn.classList.add('is-copied');
+        btn.textContent = window.MOLI_I18N ? window.MOLI_I18N.t('contact.copied') : '已复制 ✓';
+        setTimeout(() => { btn.classList.remove('is-copied'); restoreLabel(); }, 1600);
       };
       btn.addEventListener('click', () => {
         const text = btn.dataset.email || '';

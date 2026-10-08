@@ -1,149 +1,198 @@
-# MOLI · 个人作品集网站
+<div align="center">
 
-一个**纯静态、零构建、双击即可运行**的个人作品集网页。
-HTML + CSS + JavaScript 写成，没有任何框架和打包步骤；动效层使用 **GSAP 3.15（CDN 引入，渐进增强）**，并内置完整的原生回退——CDN 加载失败或断网时网站照常完整打开，只是动效换回轻量原生版本。
+# MOLI · Personal Portfolio
 
-- 作者署名：Liang Yukun / 品牌名 **MOLI**（中职计算机专业 · 前端方向）
-- 视觉：黑白红编辑海报风（近白纸感底 + 深炭反色分区 + 正红焦点色）
-- 动效（第三轮·获奖级编辑动效）：**点击导航/按钮的红色幕布转场**（红幕下压盖住瞬间跳转再揭开，减少动态时退回丝滑滚动）、**导航红色滑动指示器**（按栏目位置自动滑动、悬停临时跟随）、区块大标题升级为**逐字 3D 翻转 + 去模糊弹入**、作品卡 **3D 倾斜 + 鼠标红色追光**（桌面）、技能星座**数据流光虚线 + 核心呼吸环**（该星座与百分比条已在第六轮整体重做，见下）、页脚**巨型 MOLI 描边随滚动被红色填充（滚到最底恰好 100% 填满、完整显示）**、两条大字宣言带的**交互微粒场**（改编自 CodePen《Shape Wave》：一层细点矩阵，鼠标靠近时微粒平滑绽放、少量转红，点击或滚入时从触发点扩散一圈环形波、波峰经过的微粒依次亮起，副标文字自动挖空保证可读；纯 canvas、不依赖 GSAP，仅在进入视口时运行、离开/切后台自动暂停，触屏轻点也能触发涟漪）、红色选区 / 细滚动条 / 键盘焦点描边 / 按钮箭头位移。
-- 动效（第五轮·光标 / 灯箱 / 时间线精修）：① **新增跟随光标**（仅桌面精细指针，改编自 personal-page-with-gsap-scrolltrigger，只取光标）——一枚 32px 白色正圆用 `mix-blend-mode:difference` 反色叠加（浅底显黑、深底显白，自动贴合黑白红），GSAP `power3` 缓动跟随，悬停链接 / 按钮 / 卡片等可交互元素时放大到 2.4 倍，不替换系统光标，触屏 / 无 GSAP 自动隐藏。② **图片点击放大灯箱**——点击「一路怎么走来」里的阶段配图（或任意 `[data-lightbox]`）弹出全屏深色查看层，显示大图 / 占位、说明文字，支持点遮罩、× 按钮、Esc 关闭并归还焦点；占位块悬停出现放大角标与 zoom 光标。③ **横向时间线红线精修**——线条**显著加粗（13px）、圆头**，沿每张图片底部以**更大的波浪幅度**上下穿梭（奇数段沉入图块后方、偶数段探出留白），**去掉里程碑节点圆圈与灰色底线路径，只保留随滚动逐段描红的运动过程**（起点藏于首图、终点向右延伸，未滚动时完全不显示，避免生硬出现）；**移动端不再绘制 SVG 路线**，改为干净的原生横滑（隐藏原生滚动条、卡片侧露提示、提示语切换为"左右滑动"）。④ 修复荣誉牌堆**左右箭头方向相反**的问题：右箭头 / 点牌为前进（计数 +1 循环、新卡自上方落入），左箭头为后退（-1、旧前卡下坠归位）。
-- 动效（第六轮·技能板块重做）：**「我会的技能」整体替换为「从想法，到上线 / HOW I BUILD」六步构建流水线**——不再用熟练度百分比与星座图，改以"想清楚 IDEA → 搭骨架 MARKUP → 做样式 STYLE → 加交互 INTERACT → 管版本 VERSION → 发出去 SHIP"的完整构建流程表达能力，每步配一句"能做出的结果"与技术标签 chips，底部"也会一点，还在持续学"放 Python / SQL / Photoshop·剪映，并用 mono 声明"不标熟练度百分比，作品就是答案"；左侧红色主轴随滚动 scrub 描下、节点圆点进入视口时弹性点亮填红（GSAP ScrollTrigger；无 GSAP / 减少动态时用 IntersectionObserver + 原生滚动监听同等降级，无 JS 时红轴与节点直接满显），卡片悬停右移、节点放大；移动端收紧轨道间距，无横向溢出。
-- 动效（第四轮·三大交互板块）：① **「一路怎么走来」改为横向滚动时间线**——桌面端用 ScrollTrigger 把整段钉住（pin），向下滚动时卡片横向平移，一条圆润红色 SVG 路线（Catmull-Rom 转贝塞尔）在图片卡之间穿梭、用 DrawSVGPlugin 随滚动进度逐段描红、置于卡片之下，底部同步一条进度条；移动端 / 减少动态时自动改为原生横向滑动（scroll-snap）。② **新增「一些小荣誉」3D 叠卡牌堆**——一摞居中、按纵深层叠的荣誉卡，点卡片或左右箭头切换，可点圆点跳页、带 `01/05` 计数；减少动态时纵向平铺。③ **新增「这些地方也能找到我」链式手风琴**——抖音 / 哔哩哔哩 / Instagram / X / 微博 五根深色窄列（线性图标 + 竖排平台名 + 描边大序号），点击一根即顺滑展开为浅色面板（账号 handle、简介、三项数据、前往主页按钮、关闭叉），其余收成窄列，单开、支持 Enter/Space/Esc 与点外关闭并带完整 ARIA；移动端转为纵向堆叠。
-- 动效（前三轮）：**开场品牌幕布（黑底 MOLI. + 红线加载后上滑揭页，无 JS/减少动态时直接跳过）**、**页头 Hero 鼠标多层视差（背景反向、名字/文案不同速度，桌面端）**、各区块**描边幽灵大序号 01–07 水印 + 滚动视差**、区块标签进入时红色短线生长、按钮点击涟漪、**回到顶部悬浮圆钮**（滚过一屏浮现）、**邮箱一键复制**（"已复制 ✓"反馈）、标签悬停反色 / 箭头位移；以及**页头 Hero 与页尾联系区均为本地视频背景（统一灰度化 + Ken Burns 慢推 + 滚动视差，离屏自动暂停省电，移动端 `playsinline` 内联播放）**、顶部红色滚动进度条、技术词无限滚动 Marquee 带（悬停暂停）、深色区鼠标聚光灯、主按钮悬停流光；另有 ScrollSmoother 桌面平滑滚动、SplitText 大标题逐行遮罩上推 / Hero 逐字 3D 升起、ScrambleText 身份行解码、ScrollTrigger 滚动触发、数字滚动计数、技能流水线红轴描下与节点点亮（旧技能条 / 星座描线已在第六轮移除）、宣言大字字距收拢 + 视差、按钮磁吸；保留系统原生光标并在桌面叠加一枚反色跟随小圆（见第五轮，触屏自动关闭平滑滚动、聚光灯、鼠标视差、卡片倾斜、横向 pin、跟随光标与幕布转场）
+**一个纯静态、零构建、双击即开的个人作品集网站。**
+黑白红编辑海报风 × GSAP 电影级动效 × 中英双语切换。
 
-> 站内所有自我介绍、作品、技能流程文案、经历、联系方式目前都是 **AI 生成的示例文案**，并已用 `〔可替换〕` 标注，按下面"换成你自己的内容"一节替换即可。
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?style=flat-square&logo=greensock&logoColor=black)](https://gsap.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-FF312E?style=flat-square)](./LICENSE)
+[![No Build](https://img.shields.io/badge/build-none-515052?style=flat-square)](#-quick-start)
+
+### 🔗 Live Demo
+# [moli080917.github.io/mywebsite](https://moli080917.github.io/mywebsite/)
+
+</div>
 
 ---
 
-## 一、目录结构
+## ✦ 关于这个项目
+
+这是我为自己打造的个人主页，也是一次「不用任何框架、只靠 HTML / CSS / JavaScript 能做到什么程度」的实验。
+
+没有打包工具、没有 node_modules、没有构建步骤 —— **下载后双击 `index.html` 就能完整运行**。动效层以 [GSAP 3.15](https://gsap.com) 渐进增强，并内置完整的原生回退：CDN 加载失败、断网或开启「减少动态效果」时，网站照常完整可读，只是动效换回轻量版本。
+
+> 作者：**Liang Yukun** / 品牌名 **MOLI** —— 中职计算机专业 · 前端方向
+> 设计语言：近白纸感底色 + 深炭反色分区 + 正红焦点色，全站严格黑白红三色。
+
+---
+
+## ✦ 效果预览
+
+
+<div align="center">
+  <img src="docs/img/about.png" alt="About" width="49%"/>
+  <img src="docs/img/works.png" alt="Works" width="49%"/>
+  <img src="docs/img/skills.png" alt="Skills" width="49%"/>
+  <img src="docs/img/path.png" alt="Path" width="49%"/>
+  <img src="docs/img/honors.png" alt="honors" width="49%"/>
+  <img src="docs/img/socials.png" alt="socials" width="49%"/>
+  <img src="docs/img/contact.png" alt="contact" width="49%"/>
+</div>
+
+---
+
+## ✦ 功能特性
+
+### 🌐 中英双语切换
+- 页头一枚 mono 描边胶囊钮（中文态 `EN` / 英文态 `中`），移动端在全屏菜单内提供整宽切换钮
+- 全站文案、按钮、ARIA 标签、`<title>` 与 meta 描述一键整体切换，品牌名与技术标签保持不翻译
+- 首次访问按浏览器语言自动选择，之后用 `localStorage` 记住选择
+- 词典与引擎独立于 `js/i18n.js`，结构清晰，方便移植到自己的项目
+
+### 🎬 GSAP 电影级动效
+- **ScrollSmoother** 桌面端平滑滚动（触屏自动回退原生滚动，保证跟手）
+- **SplitText** 大标题逐字 3D 翻转、遮罩上推；**ScrambleText** 身份行「解码」入场
+- **ScrollTrigger** 视口触发：区块进入画面时才开始演出
+- 开场品牌幕布、导航红色滑动指示器、红色幕布转场、按钮磁吸、点击涟漪
+
+### 🎆 视频背景（页头 / 页尾）
+- Hero 与页尾联系区均为本地视频背景，统一 `grayscale` 灰度化处理，绝不破坏黑白红色板
+- Ken Burns 慢推 + 滚动视差，离屏自动暂停省电，移动端 `playsinline` 内联播放
+
+### 🛤 横向滚动时间线「一路怎么走来」
+- 桌面端整段 pin 钉住，向下滚动驱动卡片横向位移
+- 一条圆润粗红路线（Catmull-Rom 转贝塞尔）沿图片底部大幅蜿蜒，用 DrawSVG 随滚动逐段描红 —— 没有灰色底稿，只保留运动过程
+- 移动端自动切换为干净的原生横向滑动（scroll-snap），不绘制 SVG
+
+### 🏆 3D 荣誉牌堆
+- 一摞带纵深感的荣誉卡：点卡片 / 左右箭头切换，圆点跳页，`01 / 05` 计数
+- 前进时新卡自上方落入，后退时旧前卡下坠归位；减少动态时纵向平铺
+
+### 🔗 链式社交手风琴
+- 抖音 / 哔哩哔哩 / Instagram / X / 微博 五根深色窄列，点击一根顺滑展开为浅色面板（账号、简介、数据、跳转按钮），单开模式，带完整 ARIA 与键盘操作
+
+### ✨ 更多细节
+- **反色跟随光标**：白色正圆以 `mix-blend-mode: difference` 叠加（不替换系统光标），悬停可交互元素时放大
+- **图片灯箱**：点击任意配图全屏放大查看，支持 Esc / 遮罩关闭
+- **交互微粒场**：改编自 [CodePen《Shape Wave》](https://codepen.io/donotfold/pen/yyapzOP)，鼠标靠近时微粒平滑绽放，点击扩散环形波
+- 深色区鼠标聚光灯、技术词无限 Marquee、页脚巨型 MOLI 描边随滚动被红色填满、红色选区与细滚动条
+
+### 📱 工程与体验
+- **零构建**：纯 HTML + CSS + JS，双击即开
+- **全响应式**：手机 / 平板 / 桌面自适应，移动端无横向溢出
+- **无障碍**：语义化标签、跳转链接、键盘焦点样式、完整 ARIA、WCAG AA 对比度
+- **三层降级**：禁用 JS 内容完整可读 → CDN 失败回退原生动效 → 「减少动态效果」直接呈现终态
+
+---
+
+## ✦ 技术栈
+
+| 类别 | 选型 |
+|---|---|
+| 结构 | 语义化 HTML5 |
+| 样式 | 原生 CSS3（自定义属性 / Grid / Flex / 响应式） |
+| 脚本 | 原生 JavaScript（ES6+，无任何框架） |
+| 动效 | GSAP 3.15：ScrollTrigger · ScrollSmoother · ScrollToPlugin · SplitText · ScrambleText · DrawSVG |
+| 字体 | Archivo Black / JetBrains Mono（系统字体兜底） |
+| 媒体 | 本地 MP4 背景视频（灰度化）+ 首帧 poster |
+
+---
+
+## ✦ 目录结构
 
 ```
-My-website/
-├─ index.html              # 唯一页面（所有区块都在这里改文字）
+mywebsite/
+├─ index.html          # 唯一页面（所有区块内容都在这里）
 ├─ css/
-│  ├─ variables.css        # 设计变量：配色 / 字体 / 字号 / 间距（想换风格改这里）
-│  └─ style.css            # 全部样式与响应式、动效
+│  ├─ variables.css    # 设计变量：配色 / 字体 / 间距（换风格改这里）
+│  └─ style.css        # 全部样式、响应式与动效
 ├─ js/
-│  └─ main.js              # 全部交互：GSAP 高端动效层 + 原生回退（GSAP 走 CDN，见 index.html 末尾）
-├─ video/                  # 页头/页尾背景视频与首帧 poster（见下"视频背景"一节）
-│  ├─ firework-bg.mp4                     # Hero 页头背景（黑底稀疏烟花余烬/碎屑，约 3.7MB，灰度化）
-│  ├─ firework-bg-poster.png              # Hero 首帧（加载/减少动态时显示）
-│  ├─ firework.mp4                        # 页尾背景（夜空烟花，约 13MB，灰度化）
-│  └─ firework-poster.png                 # 页尾首帧
-├─ docs/                   # 设计过程文档（主题/配色/动效选型/信息架构/验证报告，可保留可删）
-├─ color/                  # 原始色板参考图（网站运行不依赖，可删）
-└─ 001/                    # 动效灵感参考源码（网站运行不依赖，可删）
+│  ├─ main.js          # 全部交互：GSAP 动效层 + 原生回退
+│  ├─ i18n.js          # 中英双语词典与切换引擎
+│  └─ gsap/            # GSAP 核心与插件（本地兜底，也可改用 CDN）
+├─ video/              # 页头 / 页尾背景视频与首帧 poster
+└─ docs/               # 设计过程文档（可保留可删）
 ```
-
-网站运行**只需要** `index.html` + `css/` + `js/` + `video/`（两段背景视频与两张首帧），其余都是设计素材与文档。
 
 ---
 
-## 二、本地运行
+## ✦ Quick Start
 
-### 方式 1：直接双击（最简单）
-双击 `index.html`，用任意现代浏览器（Edge / Chrome / Firefox / Safari）打开即可。
-无需安装 Node、无需启动服务。**首次联网打开**会从 CDN 加载 GSAP 以启用完整高端动效；即使断网，页面也会自动降级为原生动效，内容、排版完全不受影响。
+### 方式一：双击运行（最简单）
 
-### 方式 2：本地服务器（推荐，和线上表现完全一致）
-在项目根目录任选一种：
+下载或克隆本仓库，直接双击 `index.html`，用任意现代浏览器（Edge / Chrome / Firefox / Safari）打开即可。无需 Node、无需启动服务。
 
-```powershell
+### 方式二：本地服务器（与线上表现完全一致）
+
+```bash
 # 已装 Python
 python -m http.server 8000
-# 然后浏览器访问 http://localhost:8000
 
 # 或已装 Node
 npx serve .
 ```
 
----
+然后浏览器访问 `http://localhost:8000`。
 
-## 三、换成你自己的内容（重点）
+### 方式三：克隆
 
-用编辑器（VS Code 即可）打开 `index.html`，从上到下按区块改：
-
-| 想改什么 | 在 index.html 里找 | 说明 |
-|---|---|---|
-| 浏览器标签标题 / 简介 | `<title>`、`<meta name="description">` | SEO 与收藏夹显示 |
-| Hero 大名字 / 一句话 | `section#hero` 内 `hero__name`、`hero__role`、`hero__tagline` | 大名字的"解码动画"会自动读取文字，无需改 JS |
-| 关于我 | `section#about` 两段 `<p>`、标签 `about__tags`、四个数字 | 数字带 04/02+/06+/∞ 可改成你的真实数据 |
-| 四个作品 | `section#works` 里 4 张 `.work-card` 与对应 4 个 `.work-detail` | **卡片序号/年份和详情要一一对应**；标签是技术栈，"角色/成果"两行可删改 |
-| 技能（从想法到上线） | `section#skills`：`.build__steps` 里 6 个 `.build__step`（`.build__no` 序号 + `.build__title` 中文动词 / `.build__en` 英文小标 + `.build__desc` 一句结果 + `.build__tags` 技术标签），底部 `.build__foot` 是"也会一点"与诚实声明 | 直接改每步的标题、描述、标签即可；红轴随滚动自动描下、节点自动点亮，无需再调百分比；整段复制 `.build__step` 可增删步骤 |
-| 成长时间线（横向） | `section#path` 里 1 个 `.hpanel--intro` + 6 个 `.hpanel` | 改日期（`.hpanel__date`）、标题、描述；`.hpanel__img` 是深炭图片占位块，**点击可在灯箱放大**——换成真实图片时在占位块上加 `data-full="大图地址"`（或直接放 `<img>`）即可，灯箱会自动读取；整段复制可加里程碑，红线会自动重算路径 |
-| 荣誉叠卡 | `section#honors` 里 5 张 `.hcard` | 改年份、标签（WORK 等）、标题、副标题、描述；整段复制/删减卡片后圆点与计数自动更新 |
-| 社交账号 | `section#socials` 里 5 个 `.acc__item` | 每根列对应一个平台，改 `.acc__handle`、`.acc__desc`、三项 `.acc__stats` 数据与 `.acc__go` 的 `href`；不需要的平台整列删掉即可 |
-| 联系区 & 页脚 | `section#contact`、`<footer>` | 见下方"联系方式" |
-
-全文搜索 `〔可替换〕` 可快速跳到所有示例提示，改完后把这些标注删掉即可。
-
-### 联系方式（务必替换）
-在 `section#contact`：
-
-- 邮箱按钮：`href="mailto:..."`、按钮文字与"复制邮箱"按钮的 `data-email="..."` 三处保持同一邮箱（当前为 `liang20080917@outlook.com`）；
-- GitHub：把 `href="https://github.com/your-name"` 换成你的主页地址；
-- B站 / 微信：现在是占位 `href="#"`，换成真实链接；不需要的整行删掉即可。
-- **社交账号板块（`section#socials`）**：抖音 / 哔哩哔哩 / Instagram / X / 微博五列的链接目前都是占位 `href="#"`，handle、简介、粉丝等数据是 `--` / `〔可替换〕`，逐个换成真实账号即可。
-- 页脚的 `© 2026 Liang Yukun · MOLI` 一并改成你的名字与年份。
-
-### 想换配色 / 字体
-打开 `css/variables.css`：
-- `--color-bg / -bg-sub / -text / -text-sub / -accent` 五个变量即整套配色，改这里全站生效；
-- `--font-display / --font-mono / --font-body` 是字体，删掉 Google Fonts 的 `<link>` 即完全使用系统字体。
-
-> 提示：正文字号、红色按钮文字颜色是按无障碍对比调好的，换色后建议保持"正文用深色、红色只用于大字和按钮"的搭配。
-
-### 视频背景（怎么换 / 为什么是黑白 / 体积建议）
-
-- **用在哪**：页头 Hero（`.hero__bg`，**深色电影感黑底 + 浅色字**）与页尾联系区/页脚（`.site-tail__bg`，暗黑罩 + 白字）。两段视频都在 `index.html` 里写死路径，`muted loop playsinline`，静音自动播放、循环。
-- **配色处理**：两段背景视频都在 `.bg-video` 上统一 `filter: grayscale(1)…` 去色，只作动态灰度纹理（页头稀疏余烬、页尾烟花绽放都转白亮），绝不引入金、蓝、品红等脱离黑白红色板的颜色；再叠一层深色 `.hero__veil` / `.site-tail__veil` 保证白字对比。Hero 文字、按钮与顶部导航在首屏自动转浅色，向下滚过 Hero 后导航才翻回浅色毛玻璃底 + 深色字。换 Hero 视频时请选**深色、画面稀疏不抢眼、主体避开左侧文案区**的素材（页尾则适合更热闹的绽放），浅色或满屏亮斑的素材会与深色排版冲突。
-- **怎么换成自己的视频**：把 mp4 放进 `video/`，改 `index.html` 里对应 `<source src="…">`；建议同时替换 `poster="…"` 首帧图（视频加载前 / 开启"减少动态效果"时显示）。页头视频 `preload="auto"`（首屏要看到），页尾 `preload="metadata"`，滚到接近时才加载播放，**离开视口自动暂停**以省电省流。
-- **移动端**：`playsinline` 保证 iPhone/安卓内联播放而不是全屏弹出；触摸端不启用鼠标聚光灯，视频同样离屏暂停。
-- **体积与压缩（重要）**：当前两段约 **3.7MB（firework-bg.mp4）/ 13MB（firework.mp4）**，本地浏览没问题；页尾烟花片仍偏大，**正式上线前建议压到 720p、单段 1.5–3MB**（可用 [HandBrake](https://handbrake.fr) 或 ffmpeg：`ffmpeg -i in.mp4 -vf scale=1280:-2 -crf 26 -an out.mp4`，背景视频可去掉音轨 `-an`；烟花是黑底亮斑、暗部细节少，可压得更狠，CRF 可到 28）。`video/` 里早期的红色能量光丝 / 黑洞 / 白花簇 / 山峰 / 闪电等旧素材已不再被引用，打包时不会包含。
-- **不想要视频背景**：删掉对应 `.hero__bg` / `.site-tail__bg` 整个 `<div>` 即可；深色 Hero 会回落到近黑底、页尾回落到近黑底，排版不受影响（若想让 Hero 回到早期的浅色版，需同时去掉 `section.hero` 上的 `hero--dark` 类并恢复白色 `.hero__veil`）。
+```bash
+git clone https://github.com/MOLI080917/mywebsite.git
+cd mywebsite
+# 双击 index.html，或按方式二启动本地服务
+```
 
 ---
 
-## 四、免费部署到线上（三选一）
+## ✦ 改成你自己的主页
 
-部署前确认根目录就是 `index.html` 所在目录。
+1. **换内容**：编辑 `index.html`，按区块替换文案、作品、经历、社交链接与联系方式
+2. **换语言文本**：编辑 `js/i18n.js` 中的 `zh` / `en` 词典；新增文案时在 HTML 上加 `data-i18n="键名"` 并补上两套译文
+3. **换配色 / 字体**：修改 `css/variables.css` 中的设计变量，全站即时生效
+4. **换背景视频**：把 mp4 放进 `video/`，改 `index.html` 里的 `<source>` 与 `poster` 路径
 
-### A. GitHub Pages
-1. 在 GitHub 新建仓库并上传本项目全部文件（`git init` → `add` → `commit` → `push`）；
-2. 仓库 **Settings → Pages → Build and deployment → Source 选 `main` 分支、根目录 `/(root)`**，保存；
-3. 约一分钟后得到 `https://你的用户名.github.io/仓库名/` 地址。
-
-### B. Vercel
-1. 登录 vercel.com，**Add New → Project → Import** 你的 GitHub 仓库；
-2. Framework Preset 选 **Other / 纯静态**，Build Command 留空、Output 留空，直接 Deploy；
-3. 得到线上地址，之后每次 push 自动更新。
-
-### C. Netlify
-1. 登录 netlify.com，把项目文件夹**直接拖到** "Deploy manually" 区域；
-2. 即刻得到线上地址；也可连接仓库实现自动部署。
-
-三种平台都不需要构建命令，因为本站没有构建步骤。
+> 建议背景视频压到 720p、单段 1.5–3MB 并去掉音轨；用 [HandBrake](https://handbrake.fr) 或 ffmpeg 即可。
 
 ---
 
-## 五、技术与兼容说明
+## ✦ 免费部署到 GitHub Pages
 
-- 技术栈：不依赖 jQuery / React / Vue 等任何框架与构建工具；动效使用 GSAP 3.15（gsap / ScrollTrigger / ScrollToPlugin / ScrollSmoother / SplitText / ScrambleTextPlugin / DrawSVGPlugin，均通过 jsDelivr CDN 以 `defer` 加载）；自身仅含两段本地背景视频与两张首帧，无其他位图资源。背景视频统一 CSS 灰度、Ken Burns + GSAP 滚动视差，并用 IntersectionObserver 离屏暂停。
-- 渐进增强三层保障：① 禁用 JavaScript 时内容依然完整可读；② GSAP 的 CDN 加载失败 / 断网时自动切换到轻量原生动效；③ 系统开启"减少动态效果"时直接呈现终态、不做动画。GSAP 仅在确认加载成功后才给 `<html>` 加 `gsap-on`，预隐藏样式只作用于原生层，绝不让内容停在隐藏态。
-- 平滑滚动：ScrollSmoother 仅在桌面（≥768px、精细指针）启用，触屏 / 移动端使用原生滚动以保证跟手；锚点导航由 ScrollToPlugin 丝滑定位。调试时可在网址后加 `?nosmooth` 临时关闭平滑滚动。
-- 响应式：手机 / 平板 / 桌面自适应（断点 768 / 1024 / 1440）；全站使用系统原生光标，无自定义光标层。
-- 无障碍：语义化标签、跳转链接、键盘焦点红框、菜单与作品切换的 ARIA 属性、正文对比度达到 WCAG AA/AAA。
-- 设计推导过程见 `docs/`（主题锚点、配色对比计算、动效选型、信息架构、验证报告）。
+1. Fork 本仓库，或在自己的账号下新建仓库并上传全部文件
+2. 仓库 **Settings → Pages → Build and deployment → Source 选择 `main` 分支、根目录 `/(root)`**，保存
+3. 约一分钟后访问 `https://<你的用户名>.github.io/<仓库名>/`
 
----
-
-## 六、可以继续扩展的方向
-
-- 作品卡换成真实缩略图：在 `.work-card` 内加 `<img>`（已预留卡片结构，注意别引入色板外的大块颜色）。
-- 增加"作品详情弹窗 / 子页"：复用现有红黑描边按钮风格即可。
-- 接入真实联系表单（如 Formspree）替代邮箱链接。
-- 想写博客再引入：当前按设计刻意未包含博客与主题切换。
+也可以直接部署到 Vercel / Netlify：本项目没有构建步骤，静态托管即可。
 
 ---
 
-如有需要，把你的真实文案、项目截图和链接给我，就可以在此基础上直接替换成正式版本。
+## ✦ 灵感与致谢
+
+- [GSAP](https://gsap.com) —— 没有它就没有这些动效
+- [CodePen: Shape Wave](https://codepen.io/donotfold/pen/yyapzOP) —— 宣言微粒场的灵感来源
+- 以及 CodePen / GitHub 上无数无私分享前端创意的作者们 🙏
+
+---
+
+## ✦ License
+
+本项目基于 [MIT License](./LICENSE) 开源，欢迎学习、参考与改造。保留原作者署名即可，商用或转载请先联系。
+
+---
+
+## ✦ 联系我
+
+- 📧 Email：[liang20080917@outlook.com](mailto:liang20080917@outlook.com)
+- 🐙 GitHub：[MOLI080917](https://github.com/MOLI080917)
+- 🌐 在线主页：[moli080917.github.io/mywebsite](https://moli080917.github.io/mywebsite/)
+
+<div align="center">
+
+**如果这个项目对你有启发，欢迎 Star ⭐ 支持。**
+
+`MOLI. — I turn ideas into things you can click open with code.`
+
+</div>

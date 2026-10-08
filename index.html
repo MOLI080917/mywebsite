@@ -20,11 +20,11 @@
       <span class="intro__bar"></span>
     </div>
   </div>
-  <a class="skip-link" href="#main">跳到主要内容</a>
+  <a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <header class="nav" id="top">
-    <a class="nav__brand" href="#hero" data-cursor="hover" aria-label="MOLI 回到首页">MOLI<span class="nav__brand-dot">.</span></a>
+    <a class="nav__brand" href="#hero" data-cursor="hover" data-i18n-aria="nav.brandAria">MOLI<span class="nav__brand-dot">.</span></a>
     <nav class="nav__links" id="navLinks" aria-label="页面导航">
       <a href="#about"   data-cursor="hover" data-nav>About</a>
       <a href="#works"   data-cursor="hover" data-nav>Works</a>
@@ -34,21 +34,23 @@
       <a href="#socials" data-cursor="hover" data-nav>Socials</a>
       <a href="#contact" data-cursor="hover" data-nav>Contact</a>
     </nav>
-    <button class="nav__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu" data-cursor="hover">
+    <button class="nav__lang" id="navLang" type="button" data-cursor="hover"></button>
+    <button class="nav__toggle" id="navToggle" data-i18n-aria="nav.toggleOpen" aria-expanded="false" aria-controls="mobileMenu" data-cursor="hover">
       <span></span><span></span>
     </button>
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav aria-label="移动端导航">
-      <a href="#about">About<span>关于我</span></a>
-      <a href="#works">Works<span>作品</span></a>
-      <a href="#skills">Skills<span>技能</span></a>
-      <a href="#path">Path<span>经历</span></a>
-      <a href="#honors">Honors<span>荣誉</span></a>
-      <a href="#socials">Socials<span>社交</span></a>
-      <a href="#contact">Contact<span>联系</span></a>
+      <a href="#about">About<span data-i18n="mm.about">关于我</span></a>
+      <a href="#works">Works<span data-i18n="mm.works">作品</span></a>
+      <a href="#skills">Skills<span data-i18n="mm.skills">技能</span></a>
+      <a href="#path">Path<span data-i18n="mm.path">经历</span></a>
+      <a href="#honors">Honors<span data-i18n="mm.honors">荣誉</span></a>
+      <a href="#socials">Socials<span data-i18n="mm.socials">社交</span></a>
+      <a href="#contact">Contact<span data-i18n="mm.contact">联系</span></a>
     </nav>
+    <button class="mobile-menu__lang mono" type="button" data-cursor="hover"></button>
   </div>
 
   <div id="smooth-wrapper">
@@ -66,112 +68,112 @@
       <h1 class="hero__name" aria-label="MOLI">
         <span class="hero__name-text" data-decode>MOLI</span>
       </h1>
-      <p class="hero__role mono" data-decode>Liang Yukun — 中职计算机专业学生 / 前端方向</p>
-      <p class="hero__tagline" data-reveal>“用代码把想法做成能点开的东西。” <span class="hero__tagline-sub">〔可替换〕</span></p>
+      <p class="hero__role mono" data-decode data-i18n="hero.role">Liang Yukun — 中职计算机专业学生 / 前端方向</p>
+      <p class="hero__tagline" data-reveal><span data-i18n="hero.tagline">“用代码把想法做成能点开的东西。”</span> <span class="hero__tagline-sub" data-i18n="common.replace">〔可替换〕</span></p>
       <div class="hero__cta" data-reveal>
-        <a class="btn btn--primary" href="#works" data-cursor="hover">看作品 <span aria-hidden="true">↓</span></a>
-        <a class="btn btn--ghost" href="#contact" data-cursor="hover">联系我</a>
+        <a class="btn btn--primary" href="#works" data-cursor="hover"><span data-i18n="hero.works">看作品</span> <span aria-hidden="true">↓</span></a>
+        <a class="btn btn--ghost" href="#contact" data-cursor="hover" data-i18n="hero.contact">联系我</a>
       </div>
-      <a class="hero__scroll mono" href="#about" aria-label="向下滚动到关于我">
+      <a class="hero__scroll mono" href="#about" data-i18n-aria="hero.scrollAria">
         <span>SCROLL</span><span class="hero__scroll-line" aria-hidden="true"></span>
       </a>
     </section>
     <section class="about section" id="about">
       <p class="section__label mono" data-reveal>01 / ABOUT</p>
       <div class="about__grid">
-        <h2 class="section__title" data-reveal>把兴趣，做成<br />能跑起来的作品。</h2>
+        <h2 class="section__title" data-reveal data-i18n="about.title">把兴趣，<br />做成<br />能跑起来的作品。</h2>
         <div class="about__body" id="aboutBody">
-          <p data-reveal>我是 Liang Yukun，<strong>MOLI</strong> 是我做东西时用的名字。中职选了计算机专业，从第一次在浏览器里看到自己写的页面蹦出来开始，就迷上了把想法变成作品这件事。现在主要往前端方向走，写 HTML / CSS / JavaScript，也会一点 Python 和设计工具。</p>
-          <p data-reveal>我还在学，但更习惯<strong>边学边做</strong>：每个阶段都留下一个能真正点开的东西，而不是只停在教程里。 <span class="muted">〔可替换〕</span></p>
+          <p data-reveal data-i18n="about.p1">我是 Liang Yukun，<strong>MOLI</strong> 是我做东西时用的名字。中职选了计算机专业，从第一次在浏览器里看到自己写的页面蹦出来开始，就迷上了把想法变成作品这件事。现在主要往前端方向走，写 HTML / CSS / JavaScript，也会一点 Python 和设计工具。</p>
+          <p data-reveal data-i18n="about.p2">我还在学，但更习惯<strong>边学边做</strong>：每个阶段都留下一个能真正点开的东西，而不是只停在教程里。 <span class="muted">〔可替换〕</span></p>
           <ul class="about__tags" data-reveal>
-            <li>前端学习者</li><li>计算机专业中职在读</li><li>自学驱动</li><li>习惯把东西做完整</li>
+            <li data-i18n="about.t1">前端学习者</li><li data-i18n="about.t2">计算机专业中职在读</li><li data-i18n="about.t3">自学驱动</li><li data-i18n="about.t4">习惯把东西做完整</li>
           </ul>
         </div>
       </div>
       <dl class="about__stats" id="aboutStats">
-        <div data-reveal><dt class="about__num">04</dt><dd>代表作品</dd></div>
-        <div data-reveal><dt class="about__num">02<span class="about__num-plus">+</span></dt><dd>年写代码</dd></div>
-        <div data-reveal><dt class='about__num'>06<span class='about__num-plus'>+</span></dt><dd>课堂 / 个人练习</dd></div>
-        <div data-reveal><dt class='about__num about__num--accent'>&#8734;</dt><dd>想学的东西</dd></div>
+        <div data-reveal><dt class="about__num">04</dt><dd data-i18n="about.s1">代表作品</dd></div>
+        <div data-reveal><dt class="about__num">02<span class="about__num-plus">+</span></dt><dd data-i18n="about.s2">年写代码</dd></div>
+        <div data-reveal><dt class='about__num'>06<span class='about__num-plus'>+</span></dt><dd data-i18n="about.s3">课堂 / 个人练习</dd></div>
+        <div data-reveal><dt class='about__num about__num--accent'>&#8734;</dt><dd data-i18n="about.s4">想学的东西</dd></div>
       </dl>
     </section>
     <!-- STATEMENT A -->
     <section class="statement statement--dark" aria-label="宣言">
       <h2 class="statement__text" data-statement>I BUILD<br />THINGS.</h2>
-      <p class="statement__sub mono" data-reveal>想法到代码到能点开的作品</p>
+      <p class="statement__sub mono" data-reveal data-i18n="sta.sub">想法到代码到能点开的作品</p>
     </section>
         <section class="works section" id="works">
       <p class="section__label mono" data-reveal>02 / SELECTED WORKS</p>
-      <h2 class="section__title" data-reveal>做过的东西</h2>
+      <h2 class="section__title" data-reveal data-i18n="works.title">做过的东西</h2>
 
       <div class="works__stage">
         <div class="works__deck" id="worksDeck">
-          <button class="work-card" data-work="0" data-cursor="hover" aria-label="项目 1：校园社团招新落地页">
+          <button class="work-card" data-work="0" data-cursor="hover" data-i18n-aria="wc0.aria">
             <span class="work-card__index">01</span>
-            <span class="work-card__name">社团招新<br />落地页</span>
+            <span class="work-card__name" data-i18n="wn0">社团招新<br />落地页</span>
             <span class="work-card__year mono">2024</span>
           </button>
-          <button class="work-card" data-work="1" data-cursor="hover" aria-label="项目 2：待办清单 PWA">
+          <button class="work-card" data-work="1" data-cursor="hover" data-i18n-aria="wc1.aria">
             <span class="work-card__index">02</span>
-            <span class="work-card__name">待办清单<br />PWA</span>
+            <span class="work-card__name" data-i18n="wn1">待办清单<br />PWA</span>
             <span class="work-card__year mono">2025</span>
           </button>
-          <button class="work-card" data-work="2" data-cursor="hover" aria-label="项目 3：班级成绩可视化小工具">
+          <button class="work-card" data-work="2" data-cursor="hover" data-i18n-aria="wc2.aria">
             <span class="work-card__index">03</span>
-            <span class="work-card__name">成绩可视化<br />小工具</span>
+            <span class="work-card__name" data-i18n="wn2">成绩可视化<br />小工具</span>
             <span class="work-card__year mono">2025</span>
           </button>
-          <button class="work-card" data-work="3" data-cursor="hover" aria-label="项目 4：MOLI 个人作品集">
+          <button class="work-card" data-work="3" data-cursor="hover" data-i18n-aria="wc3.aria">
             <span class="work-card__index">04</span>
-            <span class="work-card__name">MOLI<br />作品集</span>
+            <span class="work-card__name" data-i18n="wn3">MOLI<br />作品集</span>
             <span class="work-card__year mono">2026</span>
           </button>
         </div>
 
         <div class="works__panel">
           <article class="work-detail" data-detail="0">
-            <h3 class="work-detail__title">校园社团招新落地页</h3>
+            <h3 class="work-detail__title" data-i18n="wd0.title">校园社团招新落地页</h3>
             <p class="work-detail__tags mono">HTML · CSS · JAVASCRIPT</p>
-            <p class="work-detail__desc">为学校社团做的单页招新页，包含活动介绍、报名表单校验与锚点导航。第一次完整走完「提需求 → 设计 → 编码 → 静态部署」的流程。</p>
-            <p class="work-detail__meta"><span>角色：独立完成设计 + 编码</span><span>成果：招新季被 3 个社团借用</span></p>
+            <p class="work-detail__desc" data-i18n="wd0.desc">为学校社团做的单页招新页，包含活动介绍、报名表单校验与锚点导航。第一次完整走完「提需求 → 设计 → 编码 → 静态部署」的流程。</p>
+            <p class="work-detail__meta"><span data-i18n="wd0.role">角色：独立完成设计 + 编码</span><span data-i18n="wd0.result">成果：招新季被 3 个社团借用</span></p>
           </article>
           <article class="work-detail" data-detail="1" hidden>
-            <h3 class="work-detail__title">待办清单 PWA</h3>
+            <h3 class="work-detail__title" data-i18n="wd1.title">待办清单 PWA</h3>
             <p class="work-detail__tags mono">JS · LOCALSTORAGE · SERVICE WORKER</p>
-            <p class="work-detail__desc">可离线使用、可安装到桌面的待办应用，支持增删改、优先级排序与本地持久化，关掉网络也能正常记录。</p>
-            <p class="work-detail__meta"><span>角色：独立开发</span><span>成果：至今自己每天在用</span></p>
+            <p class="work-detail__desc" data-i18n="wd1.desc">可离线使用、可安装到桌面的待办应用，支持增删改、优先级排序与本地持久化，关掉网络也能正常记录。</p>
+            <p class="work-detail__meta"><span data-i18n="wd1.role">角色：独立开发</span><span data-i18n="wd1.result">成果：至今自己每天在用</span></p>
           </article>
           <article class="work-detail" data-detail="2" hidden>
-            <h3 class="work-detail__title">班级成绩可视化小工具</h3>
+            <h3 class="work-detail__title" data-i18n="wd2.title">班级成绩可视化小工具</h3>
             <p class="work-detail__tags mono">JAVASCRIPT · CANVAS</p>
-            <p class="work-detail__desc">粘贴一张成绩表，就能自动生成分数分布图和进退步对比，帮老师省掉手工画图、手动排名的重复劳动。</p>
-            <p class="work-detail__meta"><span>角色：两人小组 · 核心开发</span><span>成果：期末用于班级学情分析</span></p>
+            <p class="work-detail__desc" data-i18n="wd2.desc">粘贴一张成绩表，就能自动生成分数分布图和进退步对比，帮老师省掉手工画图、手动排名的重复劳动。</p>
+            <p class="work-detail__meta"><span data-i18n="wd2.role">角色：两人小组 · 核心开发</span><span data-i18n="wd2.result">成果：期末用于班级学情分析</span></p>
           </article>
           <article class="work-detail" data-detail="3" hidden>
-            <h3 class="work-detail__title">MOLI 个人作品集（本站）</h3>
+            <h3 class="work-detail__title" data-i18n="wd3.title">MOLI 个人作品集（本站）</h3>
             <p class="work-detail__tags mono">HTML · CSS · GSAP</p>
-            <p class="work-detail__desc">就是你正在看的这个网站：黑白红、零构建框架、双击 index.html 即可离线打开，动效均改编自前端效果库。</p>
-            <p class="work-detail__meta"><span>角色：设计 + 开发</span><span>成果：个人品牌主页</span></p>
+            <p class="work-detail__desc" data-i18n="wd3.desc">就是你正在看的这个网站：黑白红、零构建框架、双击 index.html 即可离线打开，动效均改编自前端效果库。</p>
+            <p class="work-detail__meta"><span data-i18n="wd3.role">角色：设计 + 开发</span><span data-i18n="wd3.result">成果：个人品牌主页</span></p>
           </article>
 
           <div class="works__controls">
-            <button class="works__arrow" id="workPrev" aria-label="上一个项目" data-cursor="hover">←</button>
+            <button class="works__arrow" id="workPrev" data-i18n-aria="works.prev" data-cursor="hover">←</button>
             <div class="works__dots" id="worksDots" role="tablist" aria-label="选择项目">
-              <button class="works__dot is-active" data-goto="0" aria-label="项目1" data-cursor="hover"></button>
-              <button class="works__dot" data-goto="1" aria-label="项目2" data-cursor="hover"></button>
-              <button class="works__dot" data-goto="2" aria-label="项目3" data-cursor="hover"></button>
-              <button class="works__dot" data-goto="3" aria-label="项目4" data-cursor="hover"></button>
+              <button class="works__dot is-active" data-goto="0" data-i18n-aria="works.dot0" data-cursor="hover"></button>
+              <button class="works__dot" data-goto="1" data-i18n-aria="works.dot1" data-cursor="hover"></button>
+              <button class="works__dot" data-goto="2" data-i18n-aria="works.dot2" data-cursor="hover"></button>
+              <button class="works__dot" data-goto="3" data-i18n-aria="works.dot3" data-cursor="hover"></button>
             </div>
-            <button class="works__arrow" id="workNext" aria-label="下一个项目" data-cursor="hover">→</button>
+            <button class="works__arrow" id="workNext" data-i18n-aria="works.next" data-cursor="hover">→</button>
           </div>
         </div>
       </div>
     </section>
         <section class="skills section section--dark spot-target" id="skills">
       <p class="section__label section__label--light mono" data-reveal>03 / SKILLS</p>
-      <h2 class="section__title section__title--light" data-reveal>从想法，<br />到上线</h2>
+      <h2 class="section__title section__title--light" data-reveal data-i18n="skills.title">从想法，<br />到上线</h2>
 
-      <p class="build__lead mono" data-reveal>// 不标熟练度百分比，只说我能用它们做出什么 〔可替换〕</p>
+      <p class="build__lead mono" data-reveal data-i18n="skills.lead">// 不标熟练度百分比，只说我能用它们做出什么 〔可替换〕</p>
 
       <div class="build" id="buildFlow">
         <span class="build__spine" aria-hidden="true"><i class="build__spine-fill"></i></span>
@@ -181,11 +183,11 @@
             <div class="build__body">
               <div class="build__head">
                 <span class="build__no mono">01</span>
-                <h3 class="build__title">想清楚<span class="build__en mono">IDEA</span></h3>
+                <h3 class="build__title"><span data-i18n="b1.t">想清楚</span><span class="build__en mono">IDEA</span></h3>
               </div>
-              <p class="build__desc">先把要做什么拆成几步，画一张潦草的草图，想清楚再动手写代码。</p>
+              <p class="build__desc" data-i18n="b1.desc">先把要做什么拆成几步，画一张潦草的草图，想清楚再动手写代码。</p>
               <ul class="build__tags">
-                <li>纸笔草图</li><li>Figma（基础）</li>
+                <li data-i18n="b1.tag1">纸笔草图</li><li data-i18n="b1.tag2">Figma（基础）</li>
               </ul>
             </div>
           </li>
@@ -194,11 +196,11 @@
             <div class="build__body">
               <div class="build__head">
                 <span class="build__no mono">02</span>
-                <h3 class="build__title">搭骨架<span class="build__en mono">MARKUP</span></h3>
+                <h3 class="build__title"><span data-i18n="b2.t">搭骨架</span><span class="build__en mono">MARKUP</span></h3>
               </div>
-              <p class="build__desc">用语义化 HTML 把内容和结构立起来，先能用、再谈好看，也照顾键盘与读屏。</p>
+              <p class="build__desc" data-i18n="b2.desc">用语义化 HTML 把内容和结构立起来，先能用、再谈好看，也照顾键盘与读屏。</p>
               <ul class="build__tags">
-                <li>HTML5</li><li>语义化结构</li><li>可访问性基础</li>
+                <li>HTML5</li><li data-i18n="b2.tag1">语义化结构</li><li data-i18n="b2.tag2">可访问性基础</li>
               </ul>
             </div>
           </li>
@@ -207,11 +209,11 @@
             <div class="build__body">
               <div class="build__head">
                 <span class="build__no mono">03</span>
-                <h3 class="build__title">做样式<span class="build__en mono">STYLE</span></h3>
+                <h3 class="build__title"><span data-i18n="b3.t">做样式</span><span class="build__en mono">STYLE</span></h3>
               </div>
-              <p class="build__desc">Flex / Grid 加响应式排版，手机和桌面端都排得稳、看得清。</p>
+              <p class="build__desc" data-i18n="b3.desc">Flex / Grid 加响应式排版，手机和桌面端都排得稳、看得清。</p>
               <ul class="build__tags">
-                <li>CSS3</li><li>Flex / Grid</li><li>响应式布局</li>
+                <li>CSS3</li><li>Flex / Grid</li><li data-i18n="b3.tag1">响应式布局</li>
               </ul>
             </div>
           </li>
@@ -220,11 +222,11 @@
             <div class="build__body">
               <div class="build__head">
                 <span class="build__no mono">04</span>
-                <h3 class="build__title">加交互<span class="build__en mono">INTERACT</span></h3>
+                <h3 class="build__title"><span data-i18n="b4.t">加交互</span><span class="build__en mono">INTERACT</span></h3>
               </div>
-              <p class="build__desc">让页面会动、会响应：操作 DOM、监听事件，再用 GSAP 做滚动动效。</p>
+              <p class="build__desc" data-i18n="b4.desc">让页面会动、会响应：操作 DOM、监听事件，再用 GSAP 做滚动动效。</p>
               <ul class="build__tags">
-                <li>JavaScript</li><li>DOM 与事件</li><li>GSAP 动效</li>
+                <li>JavaScript</li><li data-i18n="b4.tag1">DOM 与事件</li><li data-i18n="b4.tag2">GSAP 动效</li>
               </ul>
             </div>
           </li>
@@ -233,11 +235,11 @@
             <div class="build__body">
               <div class="build__head">
                 <span class="build__no mono">05</span>
-                <h3 class="build__title">管版本<span class="build__en mono">VERSION</span></h3>
+                <h3 class="build__title"><span data-i18n="b5.t">管版本</span><span class="build__en mono">VERSION</span></h3>
               </div>
-              <p class="build__desc">在命令行里用 Git 记录每一次改动，推到 GitHub，留下完整的学习痕迹。</p>
+              <p class="build__desc" data-i18n="b5.desc">在命令行里用 Git 记录每一次改动，推到 GitHub，留下完整的学习痕迹。</p>
               <ul class="build__tags">
-                <li>Git / GitHub</li><li>VS Code</li><li>命令行</li>
+                <li>Git / GitHub</li><li>VS Code</li><li data-i18n="b5.tag1">命令行</li>
               </ul>
             </div>
           </li>
@@ -246,11 +248,11 @@
             <div class="build__body">
               <div class="build__head">
                 <span class="build__no mono">06</span>
-                <h3 class="build__title">发出去<span class="build__en mono">SHIP</span></h3>
+                <h3 class="build__title"><span data-i18n="b6.t">发出去</span><span class="build__en mono">SHIP</span></h3>
               </div>
-              <p class="build__desc">部署成一个能直接点开的链接，发给别人真正用起来，而不是只躺在本地。</p>
+              <p class="build__desc" data-i18n="b6.desc">部署成一个能直接点开的链接，发给别人真正用起来，而不是只躺在本地。</p>
               <ul class="build__tags">
-                <li>GitHub Pages 部署</li><li>PWA（待办应用实践）</li>
+                <li data-i18n="b6.tag1">GitHub Pages 部署</li><li data-i18n="b6.tag2">PWA（待办应用实践）</li>
               </ul>
             </div>
           </li>
@@ -258,22 +260,22 @@
       </div>
 
       <div class="build__foot" data-reveal>
-        <p class="build__also"><span class="build__also-k mono">// 也会一点，还在持续学</span></p>
+        <p class="build__also"><span class="build__also-k mono" data-i18n="skills.also">// 也会一点，还在持续学</span></p>
         <ul class="build__tags build__tags--plain">
-          <li>Python</li><li>SQL</li><li>Photoshop / 剪映基础</li>
+          <li>Python</li><li>SQL</li><li data-i18n="skills.footTag">Photoshop / 剪映基础</li>
         </ul>
-        <p class="build__note muted">能不能做出来，上面的作品就是答案——这比百分比更诚实。〔可替换〕</p>
+        <p class="build__note muted" data-i18n="skills.note">能不能做出来，上面的作品就是答案——这比百分比更诚实。〔可替换〕</p>
       </div>
     </section>
         <section class="statement statement--light" aria-label="宣言">
       <h2 class="statement__text" data-statement>STILL<br />LEARNING.</h2>
-      <p class="statement__sub mono" data-reveal>走得慢一点，但一直在走</p>
+      <p class="statement__sub mono" data-reveal data-i18n="stb.sub">走得慢一点，但一直在走</p>
     </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>HTML <i>//</i></span><span>CSS <i>//</i></span><span>JAVASCRIPT <i>//</i></span><span>GSAP <i>//</i></span><span>DESIGN <i>//</i></span><span>边学边做 <i>//</i></span><span>FRONT-END <i>//</i></span><span>MOLI <i>//</i></span>
-        <span>HTML <i>//</i></span><span>CSS <i>//</i></span><span>JAVASCRIPT <i>//</i></span><span>GSAP <i>//</i></span><span>DESIGN <i>//</i></span><span>边学边做 <i>//</i></span><span>FRONT-END <i>//</i></span><span>MOLI <i>//</i></span>
+        <span>HTML <i>//</i></span><span>CSS <i>//</i></span><span>JAVASCRIPT <i>//</i></span><span>GSAP <i>//</i></span><span>DESIGN <i>//</i></span><span><span data-i18n="mq.learn">边学边做</span> <i>//</i></span><span>FRONT-END <i>//</i></span><span>MOLI <i>//</i></span>
+        <span>HTML <i>//</i></span><span>CSS <i>//</i></span><span>JAVASCRIPT <i>//</i></span><span>GSAP <i>//</i></span><span>DESIGN <i>//</i></span><span><span data-i18n="mq.learn">边学边做</span> <i>//</i></span><span>FRONT-END <i>//</i></span><span>MOLI <i>//</i></span>
       </div>
     </div>
 
@@ -288,87 +290,87 @@
             </svg>
 
             <article class="hpanel hpanel--intro">
-              <h2 class="section__title">一路怎么<br />走来</h2>
-              <p class="hpanel__lead">向下滚动，横向走过这几年</p>
+              <h2 class="section__title" data-i18n="path.title">一路怎么<br />走来</h2>
+              <p class="hpanel__lead" data-i18n="path.lead">向下滚动，横向走过这几年</p>
               <span class="hpanel__cue hpanel__cue--v mono">KEEP SCROLLING ↓</span>
-              <span class="hpanel__cue hpanel__cue--h mono">左右滑动，横向走过这几年 →</span>
+              <span class="hpanel__cue hpanel__cue--h mono" data-i18n="path.cueH">左右滑动，横向走过这几年 →</span>
             </article>
 
             <article class="hpanel">
               <div class="hpanel__media">
-                <div class="hpanel__img" role="img" aria-label="阶段配图占位：入读中职">
-                  <span class="hpanel__imgtag mono">IMG · 〔可替换〕</span>
+                <div class="hpanel__img" role="img" data-i18n-aria="pa0.aria">
+                  <span class="hpanel__imgtag mono" data-i18n="path.imgtag">IMG · 〔可替换〕</span>
                 </div>
               </div>
               <div class="hpanel__body">
                 <time class="hpanel__date mono">2023.09</time>
-                <h3 class="hpanel__title">入读中职 · 计算机专业</h3>
-                <p class="hpanel__desc">系统学习计算机基础与编程入门，第一次知道网页是怎么被做出来的。</p>
+                <h3 class="hpanel__title" data-i18n="p0.t">入读中职 · 计算机专业</h3>
+                <p class="hpanel__desc" data-i18n="p0.desc">系统学习计算机基础与编程入门，第一次知道网页是怎么被做出来的。</p>
               </div>
             </article>
 
             <article class="hpanel">
               <div class="hpanel__media">
-                <div class="hpanel__img" role="img" aria-label="阶段配图占位：第一个网页">
-                  <span class="hpanel__imgtag mono">IMG · 〔可替换〕</span>
+                <div class="hpanel__img" role="img" data-i18n-aria="pa1.aria">
+                  <span class="hpanel__imgtag mono" data-i18n="path.imgtag">IMG · 〔可替换〕</span>
                 </div>
               </div>
               <div class="hpanel__body">
                 <time class="hpanel__date mono">2024.03</time>
-                <h3 class="hpanel__title">写出第一个网页</h3>
-                <p class="hpanel__desc">用 HTML 写了一页个人介绍，第一次看到自己敲的代码在浏览器里变成页面。</p>
+                <h3 class="hpanel__title" data-i18n="p1.t">写出第一个网页</h3>
+                <p class="hpanel__desc" data-i18n="p1.desc">用 HTML 写了一页个人介绍，第一次看到自己敲的代码在浏览器里变成页面。</p>
               </div>
             </article>
 
             <article class="hpanel">
               <div class="hpanel__media">
-                <div class="hpanel__img" role="img" aria-label="阶段配图占位：校级技能赛">
-                  <span class="hpanel__imgtag mono">IMG · 〔可替换〕</span>
+                <div class="hpanel__img" role="img" data-i18n-aria="pa2.aria">
+                  <span class="hpanel__imgtag mono" data-i18n="path.imgtag">IMG · 〔可替换〕</span>
                 </div>
               </div>
               <div class="hpanel__body">
                 <time class="hpanel__date mono">2024.10</time>
-                <h3 class="hpanel__title">校级网页设计技能赛 <span class="muted">〔名次可替换〕</span></h3>
-                <p class="hpanel__desc">第一次带着作品参加比赛，体会到做完整比写一点更重要。</p>
+                <h3 class="hpanel__title" data-i18n="p2.t">校级网页设计技能赛 <span class="muted">〔名次可替换〕</span></h3>
+                <p class="hpanel__desc" data-i18n="p2.desc">第一次带着作品参加比赛，体会到做完整比写一点更重要。</p>
               </div>
             </article>
 
             <article class="hpanel">
               <div class="hpanel__media">
-                <div class="hpanel__img" role="img" aria-label="阶段配图占位：系统学 JavaScript">
-                  <span class="hpanel__imgtag mono">IMG · 〔可替换〕</span>
+                <div class="hpanel__img" role="img" data-i18n-aria="pa3.aria">
+                  <span class="hpanel__imgtag mono" data-i18n="path.imgtag">IMG · 〔可替换〕</span>
                 </div>
               </div>
               <div class="hpanel__body">
                 <time class="hpanel__date mono">2025.01</time>
-                <h3 class="hpanel__title">取得证书 · 系统学 JavaScript <span class="muted">〔证书可替换〕</span></h3>
-                <p class="hpanel__desc">拿到相关等级证书，同时不再满足于静态页面，开始系统学习 JavaScript。</p>
+                <h3 class="hpanel__title" data-i18n="p3.t">取得证书 · 系统学 JavaScript <span class="muted">〔证书可替换〕</span></h3>
+                <p class="hpanel__desc" data-i18n="p3.desc">拿到相关等级证书，同时不再满足于静态页面，开始系统学习 JavaScript。</p>
               </div>
             </article>
 
             <article class="hpanel">
               <div class="hpanel__media">
-                <div class="hpanel__img" role="img" aria-label="阶段配图占位：第一个完整应用">
-                  <span class="hpanel__imgtag mono">IMG · 〔可替换〕</span>
+                <div class="hpanel__img" role="img" data-i18n-aria="pa4.aria">
+                  <span class="hpanel__imgtag mono" data-i18n="path.imgtag">IMG · 〔可替换〕</span>
                 </div>
               </div>
               <div class="hpanel__body">
                 <time class="hpanel__date mono">2025.06</time>
-                <h3 class="hpanel__title">第一个完整小应用跑通</h3>
-                <p class="hpanel__desc">待办 PWA 完成离线可用，开始用 GitHub 记录每一次提交和学习轨迹。</p>
+                <h3 class="hpanel__title" data-i18n="p4.t">第一个完整小应用跑通</h3>
+                <p class="hpanel__desc" data-i18n="p4.desc">待办 PWA 完成离线可用，开始用 GitHub 记录每一次提交和学习轨迹。</p>
               </div>
             </article>
 
             <article class="hpanel">
               <div class="hpanel__media">
-                <div class="hpanel__img" role="img" aria-label="阶段配图占位：完成本站作品集">
-                  <span class="hpanel__imgtag mono">IMG · 〔可替换〕</span>
+                <div class="hpanel__img" role="img" data-i18n-aria="pa5.aria">
+                  <span class="hpanel__imgtag mono" data-i18n="path.imgtag">IMG · 〔可替换〕</span>
                 </div>
               </div>
               <div class="hpanel__body">
                 <time class="hpanel__date mono">2026</time>
-                <h3 class="hpanel__title">完成本站作品集</h3>
-                <p class="hpanel__desc">把做过的东西整理成你现在看到的网站，正在寻找实习 / 升学 / 比赛组队机会。</p>
+                <h3 class="hpanel__title" data-i18n="p5.t">完成本站作品集</h3>
+                <p class="hpanel__desc" data-i18n="p5.desc">把做过的东西整理成你现在看到的网站，正在寻找实习 / 升学 / 比赛组队机会。</p>
               </div>
             </article>
           </div>
@@ -382,15 +384,15 @@
       <p class="section__label mono" data-reveal>05 / HONORS</p>
       <div class="honors__layout">
         <div class="honors__intro">
-          <h2 class="section__title" data-reveal>一些<br />小荣誉</h2>
-          <p class="honors__lead" data-reveal>比赛、证书与被认可的瞬间，都收进这叠卡片里。点击卡片或箭头切换。</p>
+          <h2 class="section__title" data-reveal data-i18n="honors.title">一些<br />小荣誉</h2>
+          <p class="honors__lead" data-reveal data-i18n="honors.lead">比赛、证书与被认可的瞬间，都收进这叠卡片里。点击卡片或箭头切换。</p>
           <div class="honors__ctrl" data-reveal>
-            <button class="hbtn" id="honPrev" type="button" aria-label="上一张荣誉">←</button>
+            <button class="hbtn" id="honPrev" type="button" data-i18n-aria="honors.prev">←</button>
             <span class="honors__count mono"><b id="honCur">01</b><i>/</i><span id="honTotal">05</span></span>
-            <button class="hbtn" id="honNext" type="button" aria-label="下一张荣誉">→</button>
+            <button class="hbtn" id="honNext" type="button" data-i18n-aria="honors.next">→</button>
           </div>
           <div class="honors__dots" id="honDots" role="tablist" aria-label="选择荣誉"></div>
-          <p class="muted honors__hint">奖项与证书均为占位，替换 index.html 中对应卡片即可。</p>
+          <p class="muted honors__hint" data-i18n="honors.hint">奖项与证书均为占位，替换 index.html 中对应卡片即可。</p>
         </div>
 
         <div class="honors__stage" data-reveal>
@@ -398,41 +400,41 @@
             <article class="hcard">
               <div class="hcard__body">
                 <div class="hcard__top"><span class="hcard__year mono">2024.10</span><span class="hcard__tag mono">HONOR</span></div>
-                <h3 class="hcard__title">校级网页设计技能赛</h3>
-                <p class="hcard__org">〔名次可替换〕</p>
-                <p class="hcard__desc">第一次带着完整作品站上赛场，明白了“做完”比“只写一点”更重要。</p>
+                <h3 class="hcard__title" data-i18n="h0.t">校级网页设计技能赛</h3>
+                <p class="hcard__org" data-i18n="h0.org">〔名次可替换〕</p>
+                <p class="hcard__desc" data-i18n="h0.desc">第一次带着完整作品站上赛场，明白了“做完”比“只写一点”更重要。</p>
               </div>
             </article>
             <article class="hcard">
               <div class="hcard__body">
                 <div class="hcard__top"><span class="hcard__year mono">2025.01</span><span class="hcard__tag mono">CERT</span></div>
-                <h3 class="hcard__title">前端相关等级证书</h3>
-                <p class="hcard__org">〔证书名称可替换〕</p>
-                <p class="hcard__desc">系统学习 HTML / CSS / JavaScript 后考取，是这段学习路径的一个小结。</p>
+                <h3 class="hcard__title" data-i18n="h1.t">前端相关等级证书</h3>
+                <p class="hcard__org" data-i18n="h1.org">〔证书名称可替换〕</p>
+                <p class="hcard__desc" data-i18n="h1.desc">系统学习 HTML / CSS / JavaScript 后考取，是这段学习路径的一个小结。</p>
               </div>
             </article>
             <article class="hcard">
               <div class="hcard__body">
                 <div class="hcard__top"><span class="hcard__year mono">2025.06</span><span class="hcard__tag mono">AWARD</span></div>
-                <h3 class="hcard__title">校园编程 / 创新比赛</h3>
-                <p class="hcard__org">〔奖项可替换〕</p>
-                <p class="hcard__desc">用一个能真正跑起来的小应用参赛，从想法到演示全程自己完成。〔占位〕</p>
+                <h3 class="hcard__title" data-i18n="h2.t">校园编程 / 创新比赛</h3>
+                <p class="hcard__org" data-i18n="h2.org">〔奖项可替换〕</p>
+                <p class="hcard__desc" data-i18n="h2.desc">用一个能真正跑起来的小应用参赛，从想法到演示全程自己完成。〔占位〕</p>
               </div>
             </article>
             <article class="hcard">
               <div class="hcard__body">
                 <div class="hcard__top"><span class="hcard__year mono">2025.11</span><span class="hcard__tag mono">MERIT</span></div>
-                <h3 class="hcard__title">优秀学生作品 / 奖学金</h3>
-                <p class="hcard__org">〔可替换〕</p>
-                <p class="hcard__desc">作品被老师和同学看到的时刻，也是继续做下去的动力之一。〔占位〕</p>
+                <h3 class="hcard__title" data-i18n="h3.t">优秀学生作品 / 奖学金</h3>
+                <p class="hcard__org" data-i18n="h3.org">〔可替换〕</p>
+                <p class="hcard__desc" data-i18n="h3.desc">作品被老师和同学看到的时刻，也是继续做下去的动力之一。〔占位〕</p>
               </div>
             </article>
             <article class="hcard">
               <div class="hcard__body">
                 <div class="hcard__top"><span class="hcard__year mono">2026</span><span class="hcard__tag mono">WORK</span></div>
-                <h3 class="hcard__title">个人作品集站点上线</h3>
+                <h3 class="hcard__title" data-i18n="h4.t">个人作品集站点上线</h3>
                 <p class="hcard__org">SELF PROJECT</p>
-                <p class="hcard__desc">从零设计并手写了你正在看的这个网站，当作给自己的一份阶段答卷。</p>
+                <p class="hcard__desc" data-i18n="h4.desc">从零设计并手写了你正在看的这个网站，当作给自己的一份阶段答卷。</p>
               </div>
             </article>
           </div>
@@ -443,40 +445,40 @@
     <!-- 06 SOCIALS：链式展开手风琴（机制改编自 cool-layout-with-complex-chainable-animation，黑白红重写） -->
     <section class="socials section" id="socials">
       <p class="section__label mono" data-reveal>06 / FIND ME ONLINE</p>
-      <h2 class="section__title" data-reveal>这些地方<br />也能找到我</h2>
+      <h2 class="section__title" data-reveal data-i18n="socials.title">这些地方<br />也能找到我</h2>
       <div class="acc" id="socialAcc">
 
         <div class="acc__item" tabindex="0" role="button" aria-expanded="false" aria-controls="panel-douyin">
           <div class="acc__rail">
             <svg class="acc__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5" /><path d="M14 7.2c.6 2 2.1 3.4 4.2 3.6" /></svg>
-            <span class="acc__name">抖音<em class="acc__en mono">DOUYIN</em></span>
+            <span class="acc__name"><span data-i18n="acc.douyin.name">抖音</span><em class="acc__en mono">DOUYIN</em></span>
             <span class="acc__idx" aria-hidden="true">01</span>
           </div>
           <div class="acc__panel" id="panel-douyin">
-            <button class="acc__close" type="button" aria-label="收起">×</button>
+            <button class="acc__close" type="button" data-i18n-aria="acc.close">×</button>
             <svg class="acc__glyph acc__glyph--big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5" /><path d="M14 7.2c.6 2 2.1 3.4 4.2 3.6" /></svg>
-            <h3 class="acc__h">抖音 <span class="mono">DOUYIN</span></h3>
+            <h3 class="acc__h"><span data-i18n="acc.douyin.h">抖音</span> <span class="mono">DOUYIN</span></h3>
             <p class="acc__handle mono">@your-douyin-id〔可替换〕</p>
-            <p class="acc__desc">用短视频记录做作品的过程与小片段，偶尔更新学习日常。〔占位文案 · 可替换〕</p>
-            <ul class="acc__stats mono"><li><b>--</b><span>作品</span></li><li><b>--</b><span>粉丝</span></li><li><b>--</b><span>获赞</span></li></ul>
-            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener">前往主页 <span aria-hidden="true">↗</span></a>
+            <p class="acc__desc" data-i18n="acc.douyin.desc">用短视频记录做作品的过程与小片段，偶尔更新学习日常。〔占位文案 · 可替换〕</p>
+            <ul class="acc__stats mono"><li><b>--</b><span data-i18n="acc.douyin.s1">作品</span></li><li><b>--</b><span data-i18n="acc.douyin.s2">粉丝</span></li><li><b>--</b><span data-i18n="acc.douyin.s3">获赞</span></li></ul>
+            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener"><span data-i18n="acc.go">前往主页</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
         <div class="acc__item" tabindex="0" role="button" aria-expanded="false" aria-controls="panel-bilibili">
           <div class="acc__rail">
             <svg class="acc__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="m8 3 3 4M16 3l-3 4" /><path d="M8 12.5h.01M16 12.5h.01" /></svg>
-            <span class="acc__name">哔哩哔哩<em class="acc__en mono">BILIBILI</em></span>
+            <span class="acc__name"><span data-i18n="acc.bili.name">哔哩哔哩</span><em class="acc__en mono">BILIBILI</em></span>
             <span class="acc__idx" aria-hidden="true">02</span>
           </div>
           <div class="acc__panel" id="panel-bilibili">
-            <button class="acc__close" type="button" aria-label="收起">×</button>
+            <button class="acc__close" type="button" data-i18n-aria="acc.close">×</button>
             <svg class="acc__glyph acc__glyph--big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="m8 3 3 4M16 3l-3 4" /><path d="M8 12.5h.01M16 12.5h.01" /></svg>
-            <h3 class="acc__h">哔哩哔哩 <span class="mono">BILIBILI</span></h3>
+            <h3 class="acc__h"><span data-i18n="acc.bili.h">哔哩哔哩</span> <span class="mono">BILIBILI</span></h3>
             <p class="acc__handle mono">@MOLI〔可替换〕</p>
-            <p class="acc__desc">放长一点的教程复盘、项目演示录屏和踩坑笔记。〔占位文案 · 可替换〕</p>
-            <ul class="acc__stats mono"><li><b>--</b><span>视频</span></li><li><b>--</b><span>粉丝</span></li><li><b>--</b><span>播放</span></li></ul>
-            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener">前往主页 <span aria-hidden="true">↗</span></a>
+            <p class="acc__desc" data-i18n="acc.bili.desc">放长一点的教程复盘、项目演示录屏和踩坑笔记。〔占位文案 · 可替换〕</p>
+            <ul class="acc__stats mono"><li><b>--</b><span data-i18n="acc.bili.s1">视频</span></li><li><b>--</b><span data-i18n="acc.bili.s2">粉丝</span></li><li><b>--</b><span data-i18n="acc.bili.s3">播放</span></li></ul>
+            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener"><span data-i18n="acc.go">前往主页</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -487,13 +489,13 @@
             <span class="acc__idx" aria-hidden="true">03</span>
           </div>
           <div class="acc__panel" id="panel-instagram">
-            <button class="acc__close" type="button" aria-label="收起">×</button>
+            <button class="acc__close" type="button" data-i18n-aria="acc.close">×</button>
             <svg class="acc__glyph acc__glyph--big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.2 6.8h.01" /></svg>
             <h3 class="acc__h">Instagram <span class="mono">INS</span></h3>
             <p class="acc__handle mono">@moli.builds〔可替换〕</p>
-            <p class="acc__desc">作品截图、配色与排版灵感，以及做东西时的工作台。〔占位文案 · 可替换〕</p>
-            <ul class="acc__stats mono"><li><b>--</b><span>帖子</span></li><li><b>--</b><span>粉丝</span></li><li><b>--</b><span>关注</span></li></ul>
-            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener">前往主页 <span aria-hidden="true">↗</span></a>
+            <p class="acc__desc" data-i18n="acc.ins.desc">作品截图、配色与排版灵感，以及做东西时的工作台。〔占位文案 · 可替换〕</p>
+            <ul class="acc__stats mono"><li><b>--</b><span data-i18n="acc.ins.s1">帖子</span></li><li><b>--</b><span data-i18n="acc.ins.s2">粉丝</span></li><li><b>--</b><span data-i18n="acc.ins.s3">关注</span></li></ul>
+            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener"><span data-i18n="acc.go">前往主页</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
@@ -504,35 +506,35 @@
             <span class="acc__idx" aria-hidden="true">04</span>
           </div>
           <div class="acc__panel" id="panel-x">
-            <button class="acc__close" type="button" aria-label="收起">×</button>
+            <button class="acc__close" type="button" data-i18n-aria="acc.close">×</button>
             <svg class="acc__glyph acc__glyph--big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20" /></svg>
             <h3 class="acc__h">X <span class="mono">/ TWITTER</span></h3>
             <p class="acc__handle mono">@moli_dev〔可替换〕</p>
-            <p class="acc__desc">随手记开发笔记、转藏前端资源，也在这里关注同行在做什么。〔占位文案 · 可替换〕</p>
-            <ul class="acc__stats mono"><li><b>--</b><span>帖子</span></li><li><b>--</b><span>粉丝</span></li><li><b>--</b><span>关注</span></li></ul>
-            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener">前往主页 <span aria-hidden="true">↗</span></a>
+            <p class="acc__desc" data-i18n="acc.x.desc">随手记开发笔记、转藏前端资源，也在这里关注同行在做什么。〔占位文案 · 可替换〕</p>
+            <ul class="acc__stats mono"><li><b>--</b><span data-i18n="acc.x.s1">帖子</span></li><li><b>--</b><span data-i18n="acc.x.s2">粉丝</span></li><li><b>--</b><span data-i18n="acc.x.s3">关注</span></li></ul>
+            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener"><span data-i18n="acc.go">前往主页</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
         <div class="acc__item" tabindex="0" role="button" aria-expanded="false" aria-controls="panel-weibo">
           <div class="acc__rail">
             <svg class="acc__glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="10" cy="14" rx="7" ry="5.5" /><path d="M15.5 8.5c1.8-.4 3.2.5 3.5 2.2M17 5.5c2.6-.2 4.4 1.4 4.6 3.8" /><path d="M8 13.5h.01M11.5 15.5h.01" /></svg>
-            <span class="acc__name">微博<em class="acc__en mono">WEIBO</em></span>
+            <span class="acc__name"><span data-i18n="acc.weibo.name">微博</span><em class="acc__en mono">WEIBO</em></span>
             <span class="acc__idx" aria-hidden="true">05</span>
           </div>
           <div class="acc__panel" id="panel-weibo">
-            <button class="acc__close" type="button" aria-label="收起">×</button>
+            <button class="acc__close" type="button" data-i18n-aria="acc.close">×</button>
             <svg class="acc__glyph acc__glyph--big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="10" cy="14" rx="7" ry="5.5" /><path d="M15.5 8.5c1.8-.4 3.2.5 3.5 2.2M17 5.5c2.6-.2 4.4 1.4 4.6 3.8" /><path d="M8 13.5h.01M11.5 15.5h.01" /></svg>
-            <h3 class="acc__h">微博 <span class="mono">WEIBO</span></h3>
+            <h3 class="acc__h"><span data-i18n="acc.weibo.h">微博</span> <span class="mono">WEIBO</span></h3>
             <p class="acc__handle mono">@MOLI做东西〔可替换〕</p>
-            <p class="acc__desc">同步作品更新与日常，也会转发设计、前端相关的内容。〔占位文案 · 可替换〕</p>
-            <ul class="acc__stats mono"><li><b>--</b><span>微博</span></li><li><b>--</b><span>粉丝</span></li><li><b>--</b><span>转评赞</span></li></ul>
-            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener">前往主页 <span aria-hidden="true">↗</span></a>
+            <p class="acc__desc" data-i18n="acc.weibo.desc">同步作品更新与日常，也会转发设计、前端相关的内容。〔占位文案 · 可替换〕</p>
+            <ul class="acc__stats mono"><li><b>--</b><span data-i18n="acc.weibo.s1">微博</span></li><li><b>--</b><span data-i18n="acc.weibo.s2">粉丝</span></li><li><b>--</b><span data-i18n="acc.weibo.s3">转评赞</span></li></ul>
+            <a class="btn btn--primary acc__go" href="#" target="_blank" rel="noopener"><span data-i18n="acc.go">前往主页</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
       </div>
-      <p class="muted socials__note" data-reveal>账号、数据与文案均为占位，替换 index.html 中对应 href 与文字即可上线。</p>
+      <p class="muted socials__note" data-reveal data-i18n="socials.note">账号、数据与文案均为占位，替换 index.html 中对应 href 与文字即可上线。</p>
     </section>
 
   </main>
@@ -547,16 +549,16 @@
 
     <section class="contact section section--ink" id="contact">
       <p class="section__label section__label--light mono" data-reveal>07 / CONTACT</p>
-      <h2 class="contact__title" data-reveal>一起做<br />点东西？</h2>
-      <p class="contact__sub" data-reveal>实习、比赛组队、交流学习都欢迎找我，通常当天回。 <span class="muted">〔可替换〕</span></p>
+      <h2 class="contact__title" data-reveal data-i18n="contact.title">一起做<br />点东西？</h2>
+      <p class="contact__sub" data-reveal data-i18n="contact.sub">实习、比赛组队、交流学习都欢迎找我，通常当天回。 <span class="muted">〔可替换〕</span></p>
       <div class="contact__actions" data-reveal>
         <div class="contact__mail-row">
           <a class="btn btn--primary btn--lg" href="mailto:liang20080917@outlook.com" data-cursor="hover">liang20080917@outlook.com</a>
-          <button class="btn btn--ghost btn--lg contact-copy" type="button" data-email="liang20080917@outlook.com">复制邮箱</button>
+          <button class="btn btn--ghost btn--lg contact-copy" type="button" data-email="liang20080917@outlook.com" data-i18n="contact.copy">复制邮箱</button>
         </div>
         <div class="contact__links">
           <a class="contact__link" href="https://github.com/your-name" target="_blank" rel="noopener" data-cursor="hover">GitHub <span aria-hidden="true">↗</span></a>
-          <a class="contact__link" href="#" data-cursor="hover">B站 / 微信 <span aria-hidden="true">↗</span></a>
+          <a class="contact__link" href="#" data-cursor="hover"><span data-i18n="contact.link2">B站 / 微信</span> <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -565,23 +567,23 @@
       <span class="footer__big" aria-hidden="true">MOLI</span>
       <p>© 2026 Liang Yukun · MOLI</p>
       <p class="mono footer__mid">BUILT WITH HTML / CSS / GSAP · NO FRAMEWORK</p>
-      <a href="#hero" class="footer__top" data-cursor="hover">回到顶部 ↑</a>
+      <a href="#hero" class="footer__top" data-cursor="hover" data-i18n="footer.top">回到顶部 ↑</a>
     </footer>
   </div><!-- /.site-tail -->
    </div><!-- /#smooth-content -->
   </div><!-- /#smooth-wrapper -->
 
-  <a class="to-top" id="toTop" href="#hero" aria-label="回到顶部"><span aria-hidden="true">↑</span></a>
+  <a class="to-top" id="toTop" href="#hero" data-i18n-aria="toTop.aria"><span aria-hidden="true">↑</span></a>
 
   <!-- 自定义跟随光标（仅桌面精细指针，触屏/无 GSAP 自动隐藏，不替换系统光标） -->
   <div class="cursor" id="cursor" aria-hidden="true"></div>
 
   <!-- 图片灯箱：点击图片放大查看 -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="图片放大查看">
-    <button class="lightbox__close" type="button" aria-label="关闭">×</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" data-i18n-aria="lightbox.aria">
+    <button class="lightbox__close" type="button" data-i18n-aria="lightbox.close">×</button>
     <div class="lightbox__stage">
-      <img class="lightbox__img" alt="放大的阶段配图" hidden />
-      <div class="lightbox__ph mono">IMG · 大图占位<br />把 .hpanel__img 换成真实 &lt;img&gt; 或加 data-full 即可在此放大</div>
+      <img class="lightbox__img" data-i18n-aria="lightbox.imgAlt" hidden />
+      <div class="lightbox__ph mono" data-i18n="lightbox.ph">IMG · 大图占位<br />把 .hpanel__img 换成真实 &lt;img&gt; 或加 data-full 即可在此放大</div>
     </div>
     <p class="lightbox__cap mono"></p>
   </div>
@@ -594,6 +596,7 @@
   <script src="js/gsap/SplitText.min.js" defer></script>
   <script src="js/gsap/ScrambleTextPlugin.min.js" defer></script>
   <script src="js/gsap/DrawSVGPlugin.min.js" defer></script>
+  <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
